@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Cheque inn="0000000000" 
+kpp="000000000" 
+address="Test" 
+name="Test" 
+kassa="1" 
+shift="1" 
+number="1" 
+datetime="0101150000"> 
+<Bottle price="10.00" barcode="22N00000XOPN13MM66T0HVF311220130003476539219152175585956302712947101" ean="4607005090812" volume="1.0000" /> 
+</Cheque> 
