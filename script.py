@@ -50,16 +50,19 @@ def get_random_cheque():
 
 if __name__ == "__main__":
     
+    ## Создание нового чека
     cheque = get_random_cheque()   
     
     if xmlschema.XMLSchema("xsd-схема.xsd").is_valid(cheque):
         
         print("XML file is valid")
-    
+
+        ## Запись чека в файл
         ET.ElementTree(cheque).write("cheque.xml")
         
         print('File saved in ./cheque.xml')
 
+        ## Отпраква чека в веб-сервис
         r = subprocess.run(["curl", "-F", "xml_file=@cheque.xml", "http://localhost:8080/xml"], capture_output=True)
     
         if r.returncode == 0:
