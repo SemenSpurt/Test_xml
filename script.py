@@ -75,8 +75,8 @@ def test(updates=dict(), counts=100):
         f"""
         {len(rounds) + failed}\ttotal tests
         {sum(rounds)}\tpassed tests
-        {len(rounds) - sum(rounds)}\tfailed tests
-        {failed}\tpattern fails
+        {len(rounds) - sum(rounds)}\tfailed test
+        {failed}\tpattern error
         """)
 
     
@@ -109,22 +109,22 @@ def main(xml_file="./cheque.xml"):
 if __name__ == "__main__":
     
     test_cases = {
-        "one" : { 
+        "Date + Barcode" : { 
             "datetime" : lambda : rstr.xeger('[0-3][0-9][0-1][0-9][0-9]{2}[0-2][0-9][0-5][0-9]'),
             "barcode" : lambda : rstr.xeger("\d\dN\w{20}\d[0-1]\d[0-3]\d{10}\w{31}") ,
         },
         
-        "two" : {
+        "New Date + New Barcode" : {
             "datetime" : lambda : rstr.xeger('(((31(0[13578]|1[02])|((29|30)(0[1,3-9]|1[0-2]))|((0[1-9]|1\d|2[0-8])(0[1-9]|1[0-2])))\d{2})|(2902(0[48]|[2468][048]|[13579][26]|00)))([01]\d|2[0-3])[0-5]\d((\+|-)\d{4})?'),
             "barcode" : lambda : rstr.xeger('([1-9]\d{2}|\d([1-9]\d|\d[1-9])){2}([1-9]\d{7}|\d([1-9]\d{6}|\d([1-9]\d{5}|\d([1-9]\d{4}|\d([1-9]\d{3}|\d([1-9]\d{2}|\d([1-9]\d|\d[1-9])))))))(0[1-9]|1[0-2])(1[8-9]|[2-9][0-9])([1-9]\d{2}|\d([1-9]\d|\d[1-9]))[0-9A-Z]{129}|\d\d[a-zA-Z0-9]{21}\d[0-1]\d[0-3]\d{10}[a-zA-Z0-9]{31}|[0-9]{40}')
         },
         
-        "three" : {
+        "New Date + Barcode" : {
             "datetime" : lambda : rstr.xeger('(((31(0[13578]|1[02])|((29|30)(0[1,3-9]|1[0-2]))|((0[1-9]|1\d|2[0-8])(0[1-9]|1[0-2])))\d{2})|(2902(0[48]|[2468][048]|[13579][26]|00)))([01]\d|2[0-3])[0-5]\d((\+|-)\d{4})?'),
             "barcode" : lambda : rstr.xeger("\d\dN\w{20}\d[0-1]\d[0-3]\d{10}\w{31}") ,
         },
         
-        "four" : {
+        "Date + New Barcode" : {
             "datetime" : lambda : rstr.xeger('[0-3][0-9][0-1][0-9][0-9]{2}[0-2][0-9][0-5][0-9]'),
             "barcode" : lambda : rstr.xeger('([1-9]\d{2}|\d([1-9]\d|\d[1-9])){2}([1-9]\d{7}|\d([1-9]\d{6}|\d([1-9]\d{5}|\d([1-9]\d{4}|\d([1-9]\d{3}|\d([1-9]\d{2}|\d([1-9]\d|\d[1-9])))))))(0[1-9]|1[0-2])(1[8-9]|[2-9][0-9])([1-9]\d{2}|\d([1-9]\d|\d[1-9]))[0-9A-Z]{129}|\d\d[a-zA-Z0-9]{21}\d[0-1]\d[0-3]\d{10}[a-zA-Z0-9]{31}|[0-9]{40}')
         }
